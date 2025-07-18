@@ -1,5 +1,9 @@
 # Email Queue Interview
 
+Implement `EmailQueue` such that
+1. Emails are processed in the order in which they are received
+2. Emails should not be processed until their parentId email is processed
+
 ```ts
 
 export interface Email {
