@@ -1,8 +1,17 @@
 # Email Queue Interview
 
-Implement `EmailQueue` such that
-1. Emails are processed in the order in which they are received
-2. Emails should not be processed until their parentId email is processed
+Implement an `EmailQueue` that ensures:
+
+1. **Parallel processing** – email processors should be assigned work as soon as they are free (if there is an unprocessed email).
+2. **Dependency ordering** — an email with a `parentId` is not processed until its parent email has completed.
+3.  **FIFO** — if multiple emails are eligible to be consumed, the one received first should be processed.
+
+---
+
+## Motivation
+
+You're building an AI system that processes incoming emails. Emails arrive rapidly and must be consumed in parallel, but messages belonging to the same thread must be processed serially to preserve context.
+
 
 ```ts
 
